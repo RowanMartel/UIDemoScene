@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
-    private static Singleton instance;
+    public static Singleton instance;
 
     private void Awake()
     {
         if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
             instance = this;
+        }
+        else if (instance != this)
+            Destroy(instance);
     }
 }

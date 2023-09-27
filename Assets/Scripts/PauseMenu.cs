@@ -4,23 +4,44 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    SceneLoadManager sceneLoadManager;
+    GameManager sceneLoadManager;
+    Options options;
+    SoundManager soundManager;
+
+    [SerializeField] AudioClip funnyNoise;
+
+    public bool paused;
 
     void Start()
     {
-        sceneLoadManager = FindObjectOfType<SceneLoadManager>();
+        paused = false;
+        sceneLoadManager = FindObjectOfType<GameManager>();
+        options = FindObjectOfType<Options>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
-    public void Open(int timeScale = 1)
+    private void Update()
     {
-        Time.timeScale = timeScale;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused) Close();
+            else Open();
+        }
+    }
+
+    public void Open()
+    {
+        paused = true;
+        Time.timeScale = 0;
 
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);
     }
-    public void Close(int timescale = 1)
+    public void Close()
     {
-        Time.timeScale = timescale;
+        paused = false;
+        options.Close();
+        Time.timeScale = 1;
 
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
@@ -30,16 +51,17 @@ public class PauseMenu : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
+        options.Open();
     }
 
     public void OpenTitle()
     {
         Time.timeScale = 1;
-        sceneLoadManager.LoadScene(SceneLoadManager.Scenes.titleScreen);
+        sceneLoadManager.LoadScene(GameManager.Scenes.titleScreen);
     }
 
     public void PlayFunnyNoise()
     {
-
+        soundManager.PlaySFX(funnyNoise);
     }
 }

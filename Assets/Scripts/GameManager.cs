@@ -1,49 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject TMPPauseScreen;
-    [SerializeField] GameObject TMPOptionsScreen;
-    [SerializeField] GameObject TMPWinScreen;
-    [SerializeField] GameObject TMPLoseScreen;
+    SoundManager soundManager;
 
-    public enum OverlayScreens
+    public bool paused;
+
+    public enum Scenes
     {
-        pauseScreen,
-        optionsScreen,
-        winScreen,
-        loseScreen
+        titleScreen,
+        gameplay,
+        endScreen
     }
+    public Scenes scene;
 
-    void Start()
+    private void Start()
     {
+        paused = false;
+        soundManager = FindObjectOfType<SoundManager>();
         
     }
 
-    void Update()
-    {
-        
-    }
 
-    public void ToggleOverlayScreen(bool toggle, OverlayScreens screen)
+    public void LoadScene(Scenes newScene)
     {
-        switch (screen)
+        soundManager.SetBGM(null);
+        switch (newScene)
         {
-            case OverlayScreens.pauseScreen:
-                TMPPauseScreen.SetActive(toggle);
+            case Scenes.titleScreen:
+                SceneManager.LoadScene(0);
                 break;
-            case OverlayScreens.optionsScreen:
-                TMPOptionsScreen.SetActive(toggle);
+            case Scenes.gameplay:
+                SceneManager.LoadScene(1);
                 break;
-            case OverlayScreens.winScreen:
-                TMPWinScreen.SetActive(toggle);
-                break;
-            case OverlayScreens.loseScreen:
-                TMPLoseScreen.SetActive(toggle);
+            case Scenes.endScreen:
+                SceneManager.LoadScene(2);
                 break;
         }
+    }
+    public Scenes GetScene()
+    {
+        SceneManager.GetSceneByBuildIndex(0);
+        switch (SceneManager.GetActiveScene())
+        {
+            case SceneManager.GetSceneByBuildIndex(0):
+                return Scenes.titleScreen;
+            case SceneManager.GetSceneByBuildIndex(1):
+                return Scenes.gameplay;
+            case SceneManager.GetSceneByBuildIndex(2):
+                return Scenes.endScreen;
+        }
+        return Scenes.titleScreen;
     }
 }
