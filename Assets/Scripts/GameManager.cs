@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    SoundManager soundManager;
-    TitleScreen titleScreen;
-    EndScreen endScreen;
+    [SerializeField] SoundManager soundManager;
+    [SerializeField] TitleScreen titleScreen;
+    [SerializeField] EndScreen endScreen;
 
     public bool paused;
 
@@ -22,9 +22,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         paused = false;
-        endScreen = FindObjectOfType<EndScreen>();
-        soundManager = FindObjectOfType<SoundManager>();
-        titleScreen = FindObjectOfType<TitleScreen>();
         Init();
     }
 

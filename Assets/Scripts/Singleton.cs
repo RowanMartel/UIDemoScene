@@ -14,6 +14,6 @@ public class Singleton : MonoBehaviour
             instance = this;
         }
         else if (instance != this)
-            Destroy(instance);
+            Destroy(gameObject);
     }
 }

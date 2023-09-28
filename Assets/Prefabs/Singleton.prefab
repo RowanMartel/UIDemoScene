@@ -4178,6 +4178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea364337bd86654f8f50762cb9a2e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 5985841497886525054}
+  titleScreen: {fileID: 721278131142568377}
+  endScreen: {fileID: 3279412421166994162}
   paused: 0
   scene: 0
 --- !u!1 &5731501935541095412
