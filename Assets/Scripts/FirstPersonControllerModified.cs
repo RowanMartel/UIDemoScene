@@ -74,7 +74,7 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private PauseMenu pauseMenu;
+		private GameManager gameManager;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -99,7 +99,7 @@ namespace StarterAssets
 
 		private void Start()
 		{
-			pauseMenu = FindObjectOfType<PauseMenu>();
+			gameManager = FindObjectOfType<GameManager>();
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
@@ -122,7 +122,7 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			if (!pauseMenu.paused)
+			if (!gameManager.paused)
 				CameraRotation();
 		}
 

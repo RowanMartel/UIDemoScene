@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    AudioSource BGMSource;
-    AudioSource SFXSource;
-
-    void Start()
-    {
-        BGMSource = transform.GetChild(0).GetComponent<AudioSource>();
-        SFXSource = transform.GetChild(1).GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource BGMSource;
+    [SerializeField] AudioSource SFXSource;
 
     public void SetBGM(AudioClip BGM)
     {

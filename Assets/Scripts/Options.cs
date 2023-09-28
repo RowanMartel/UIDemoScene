@@ -12,36 +12,36 @@ public class Options : MonoBehaviour
     SoundManager soundManager;
     PauseMenu pauseMenu;
     TitleScreen titleScreen;
+    GameManager gameManager;
+    BrightnessManager brightnessManager;
 
     void Start()
     {
+        brightnessManager = FindObjectOfType<BrightnessManager>();
         titleScreen = FindObjectOfType<TitleScreen>();
         pauseMenu = FindObjectOfType<PauseMenu>();
         soundManager = FindObjectOfType<SoundManager>();
+        gameManager = FindObjectOfType<GameManager>();
         ChangeBGMVolume();
     }
 
     public void Open()
     {
-        for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(true);
+        Reappear();
     }
     public void Close()
     {
-        for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(false);
+        Dissapear();
 
         // if in gameplay, reopen the pause menu
-        if (pauseMenu)
+        if (gameManager.scene == GameManager.Scenes.gameplay && gameManager.paused)
         {
-            Debug.Log("A");
-            if (pauseMenu.paused)
+            if (gameManager.paused)
                 pauseMenu.Open();
         }
         // else if on title screen, make the title reappear
-        else if (titleScreen)
+        else if (gameManager.scene == GameManager.Scenes.titleScreen)
         {
-            Debug.Log("BA");
             titleScreen.Reappear();
         }
     }
@@ -57,10 +57,21 @@ public class Options : MonoBehaviour
     }
     public void ChangeBrightness()
     {
-
+        brightnessManager.SetBrightness(sliderBrightness.value);
     }
     public void ChangeSilliness()
     {
         // nothing
+    }
+
+    public void Reappear()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
+    }
+    public void Dissapear()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(false);
     }
 }

@@ -2,29 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleScreen : MonoBehaviour
+public class EndScreen : MonoBehaviour
 {
     GameManager gameManager;
-    Options options;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        options = FindObjectOfType<Options>();
     }
 
-    public void OpenOptions()
+    public void ReturnToTitle()
     {
-        Dissapear();
-        options.Open();
-    }
-    public void OpenCredits()
-    {
-        gameManager.LoadScene(GameManager.Scenes.endScreen);
-    }
-    public void OpenGameplay()
-    {
-        gameManager.LoadScene(GameManager.Scenes.gameplay);
+        gameManager.LoadScene(GameManager.Scenes.titleScreen);
     }
 
     public void Reappear()

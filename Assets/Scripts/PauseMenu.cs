@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    GameManager sceneLoadManager;
+    GameManager gameManager;
     Options options;
     SoundManager soundManager;
 
     [SerializeField] AudioClip funnyNoise;
 
-    public bool paused;
-
     void Start()
     {
-        paused = false;
-        sceneLoadManager = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
         options = FindObjectOfType<Options>();
         soundManager = FindObjectOfType<SoundManager>();
     }
@@ -24,44 +21,52 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (paused) Close();
+            if (gameManager.paused) Close();
             else Open();
         }
     }
 
     public void Open()
     {
-        paused = true;
+        gameManager.paused = true;
         Time.timeScale = 0;
 
-        for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(true);
+        Reappear();
     }
     public void Close()
     {
-        paused = false;
+        gameManager.paused = false;
         options.Close();
         Time.timeScale = 1;
 
-        for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(false);
+        Dissapear();
     }
 
     public void OpenOptions()
     {
-        for (int i = 0; i < transform.childCount; i++)
-            transform.GetChild(i).gameObject.SetActive(false);
+        Dissapear();
         options.Open();
     }
 
     public void OpenTitle()
     {
         Time.timeScale = 1;
-        sceneLoadManager.LoadScene(GameManager.Scenes.titleScreen);
+        gameManager.LoadScene(GameManager.Scenes.titleScreen);
     }
 
     public void PlayFunnyNoise()
     {
         soundManager.PlaySFX(funnyNoise);
+    }
+
+    public void Reappear()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
+    }
+    public void Dissapear()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(false);
     }
 }
