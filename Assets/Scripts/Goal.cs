@@ -15,5 +15,9 @@ public class Goal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             sceneLoadManager.LoadScene(GameManager.Scenes.endScreen);
+        else if (other.gameObject.layer == 8)
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
