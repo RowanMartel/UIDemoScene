@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] SoundManager soundManager;
     [SerializeField] TitleScreen titleScreen;
     [SerializeField] EndScreen endScreen;
+    [SerializeField] BarkCam barkCam;
 
     public bool paused;
 
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
             case 1:
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
+                barkCam.AssignToBark();
                 scene = Scenes.gameplay;
                 break;
             case 2:
