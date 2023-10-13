@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TitleScreen titleScreen;
     [SerializeField] EndScreen endScreen;
     [SerializeField] BarkCam barkCam;
+    [SerializeField] GameObject pauseMenu;
 
     public bool paused;
 
@@ -37,16 +38,19 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(0);
                 titleScreen.Reappear();
                 endScreen.Dissapear();
+                pauseMenu.SetActive(false);
                 break;
             case Scenes.gameplay:
                 SceneManager.LoadScene(1);
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
+                pauseMenu.SetActive(true);
                 break;
             case Scenes.endScreen:
                 SceneManager.LoadScene(2);
                 titleScreen.Dissapear();
                 endScreen.Reappear();
+                pauseMenu.SetActive(false);
                 break;
         }
     }
@@ -72,17 +76,20 @@ public class GameManager : MonoBehaviour
                 titleScreen.Reappear();
                 endScreen.Dissapear();
                 scene = Scenes.titleScreen;
+                pauseMenu.SetActive(false);
                 break;
             case 1:
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
                 barkCam.AssignToBark();
                 scene = Scenes.gameplay;
+                pauseMenu.SetActive(true);
                 break;
             case 2:
                 titleScreen.Dissapear();
                 endScreen.Reappear();
                 scene = Scenes.endScreen;
+                pauseMenu.SetActive(false);
                 break;
         }
     }
