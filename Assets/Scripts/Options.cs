@@ -36,8 +36,7 @@ public class Options : MonoBehaviour
         // if in gameplay, reopen the pause menu
         if (gameManager.scene == GameManager.Scenes.gameplay && gameManager.paused)
         {
-            if (gameManager.paused)
-                pauseMenu.Open();
+            pauseMenu.Open();
         }
         // else if on title screen, make the title reappear
         else if (gameManager.scene == GameManager.Scenes.titleScreen)

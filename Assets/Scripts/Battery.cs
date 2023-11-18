@@ -48,7 +48,7 @@ public class Battery : MonoBehaviour
         if (ticker >= 1)
         {
             ticker = 0;
-            ModifyLife(-5);
+            ModifyLife(-4);
         }
 
         // die after anim timer

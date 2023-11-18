@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,8 +15,12 @@ public class ArrowSpawner : MonoBehaviour
     [SerializeField] float spawnTime;
     float spawnTimer;
 
+    FilmMeter filmMeter;
+
     void Start()
     {
+        filmMeter = Singleton.instance.GetComponentInChildren<FilmMeter>();
+
         spawnTimer = 0;
         for (int i = 0; i < poolSize; i++)
         {
@@ -26,6 +31,8 @@ public class ArrowSpawner : MonoBehaviour
 
     void Update()
     {
+        if (filmMeter.fillAmount < 1) return;
+
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnTime)
         {

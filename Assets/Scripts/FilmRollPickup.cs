@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatteryPickup : MonoBehaviour
+public class FilmRollPickup : MonoBehaviour
 {
-    [SerializeField] AudioClip batteryClip;
+    [SerializeField] float fillAmount;
+    [SerializeField] AudioClip filmRollClip;
     SoundManager soundManager;
 
     private void Start()
@@ -21,8 +22,8 @@ public class BatteryPickup : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        soundManager.PlaySFX(batteryClip);
-        other.transform.root.GetComponentInChildren<Battery>().ModifyLife(15);
+        soundManager.PlaySFX(filmRollClip);
+        Singleton.instance.GetComponentInChildren<FilmMeter>().FillMeter(fillAmount);
         Destroy(gameObject);
     }
 }

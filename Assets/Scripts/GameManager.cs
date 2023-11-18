@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] LoseScreen loseScreen;
     [SerializeField] Canvas gameplayCanvas;
+    [SerializeField] FilmMeter filmMeter;
 
     public bool paused;
 
@@ -40,16 +41,17 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(0);
                 titleScreen.Reappear();
                 endScreen.Dissapear();
-                pauseMenu.SetActive(false);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 loseScreen.Dissapear();
                 gameplayCanvas.enabled = false;
                 barkCam.Dissapear();
+                filmMeter.ResetMeter();
                 break;
             case Scenes.gameplay:
                 SceneManager.LoadScene(1);
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
-                pauseMenu.SetActive(false);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 loseScreen.Dissapear();
                 gameplayCanvas.enabled = true;
                 barkCam.Dissapear();
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(2);
                 titleScreen.Dissapear();
                 endScreen.Reappear();
-                pauseMenu.SetActive(false);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 loseScreen.Dissapear();
                 gameplayCanvas.enabled = false;
                 barkCam.Dissapear();
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(3);
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
-                pauseMenu.SetActive(false);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 loseScreen.Reappear();
                 gameplayCanvas.enabled = false;
                 barkCam.Dissapear();
@@ -93,23 +95,24 @@ public class GameManager : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex)
         {
             case 0:
+                gameplayCanvas.enabled = false;
                 titleScreen.Reappear();
                 endScreen.Dissapear();
                 scene = Scenes.titleScreen;
-                pauseMenu.SetActive(false);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 break;
             case 1:
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
                 barkCam.AssignToBark();
                 scene = Scenes.gameplay;
-                pauseMenu.SetActive(true);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 break;
             case 2:
                 titleScreen.Dissapear();
                 endScreen.Reappear();
                 scene = Scenes.endScreen;
-                pauseMenu.SetActive(false);
+                pauseMenu.GetComponent<PauseMenu>().Close();
                 break;
         }
     }

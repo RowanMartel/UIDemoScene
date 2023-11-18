@@ -12,9 +12,9 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        options = FindObjectOfType<Options>();
-        soundManager = FindObjectOfType<SoundManager>();
+        gameManager = Singleton.instance.GetComponentInChildren<GameManager>();
+        options = Singleton.instance.GetComponentInChildren<Options>();
+        soundManager = Singleton.instance.GetComponentInChildren<SoundManager>();
     }
 
     private void Update()
