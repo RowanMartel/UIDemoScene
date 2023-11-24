@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PauseMenu : MonoBehaviour
     SoundManager soundManager;
 
     [SerializeField] AudioClip funnyNoise;
+
+    [SerializeField] GameObject canceller;
+    [SerializeField] Button returnButton;
 
     void Start()
     {
@@ -68,5 +72,16 @@ public class PauseMenu : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
+    }
+
+    public void LockReturn()
+    {
+        returnButton.interactable = false;
+        canceller.SetActive(true);
+    }
+    public void UnlockReturn()
+    {
+        returnButton.interactable = true;
+        canceller.SetActive(false);
     }
 }

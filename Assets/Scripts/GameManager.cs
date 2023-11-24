@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
                 filmMeter.ResetMeter();
                 break;
             case Scenes.gameplay:
+                pauseMenu.GetComponent<PauseMenu>().UnlockReturn();
                 SceneManager.LoadScene(1);
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
