@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject canceller;
     [SerializeField] Button returnButton;
 
+    bool locked;
+
     void Start()
     {
         gameManager = Singleton.instance.GetComponentInChildren<GameManager>();
@@ -23,7 +26,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !locked && gameManager.scene == GameManager.Scenes.gameplay)
         {
             if (gameManager.paused) Close();
             else Open();
@@ -37,6 +40,13 @@ public class PauseMenu : MonoBehaviour
 
         Reappear();
     }
+    public void HardOpen()
+    {
+        gameManager.paused = true;
+        Time.timeScale = 0;
+
+        HardReappear();
+    }
     public void Close()
     {
         gameManager.paused = false;
@@ -45,10 +55,18 @@ public class PauseMenu : MonoBehaviour
 
         Dissapear();
     }
+    public void HardClose()
+    {
+        gameManager.paused = false;
+        options.Close();
+        Time.timeScale = 1;
+
+        HardDissapear();
+    }
 
     public void OpenOptions()
     {
-        Dissapear();
+        HardDissapear();
         options.Open();
     }
 
@@ -67,8 +85,24 @@ public class PauseMenu : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(true);
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        rectTransform.localScale = Vector3.zero;
+        DOTween.To(() => rectTransform.localScale, x => rectTransform.localScale = x, Vector3.one, 0.2f).SetEase(Ease.OutSine).SetUpdate(true);
+    }
+    public void HardReappear()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+            transform.GetChild(i).gameObject.SetActive(true);
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        rectTransform.localScale = Vector3.one;
     }
     public void Dissapear()
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        rectTransform.localScale = Vector3.one;
+        DOTween.To(() => rectTransform.localScale, x => rectTransform.localScale = x, Vector3.zero, 0.2f).SetEase(Ease.OutSine).SetUpdate(true);
+    }
+    public void HardDissapear()
     {
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
@@ -78,10 +112,12 @@ public class PauseMenu : MonoBehaviour
     {
         returnButton.interactable = false;
         canceller.SetActive(true);
+        locked = true;
     }
     public void UnlockReturn()
     {
         returnButton.interactable = true;
         canceller.SetActive(false);
+        locked = false;
     }
 }

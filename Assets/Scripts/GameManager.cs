@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(0);
                 titleScreen.Reappear();
                 endScreen.Dissapear();
-                pauseMenu.GetComponent<PauseMenu>().Close();
+                pauseMenu.GetComponent<PauseMenu>().HardClose();
                 loseScreen.Dissapear();
                 gameplayCanvas.enabled = false;
                 barkCam.Dissapear();
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(1);
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
-                pauseMenu.GetComponent<PauseMenu>().Close();
+                pauseMenu.GetComponent<PauseMenu>().HardClose();
                 loseScreen.Dissapear();
                 gameplayCanvas.enabled = true;
                 barkCam.Dissapear();
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(2);
                 titleScreen.Dissapear();
                 endScreen.Reappear();
-                pauseMenu.GetComponent<PauseMenu>().Close();
+                pauseMenu.GetComponent<PauseMenu>().HardClose();
                 loseScreen.Dissapear();
                 gameplayCanvas.enabled = false;
                 barkCam.Dissapear();
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(3);
                 titleScreen.Dissapear();
                 endScreen.Dissapear();
-                pauseMenu.GetComponent<PauseMenu>().Close();
+                pauseMenu.GetComponent<PauseMenu>().HardClose();
                 loseScreen.Reappear();
                 gameplayCanvas.enabled = false;
                 barkCam.Dissapear();
