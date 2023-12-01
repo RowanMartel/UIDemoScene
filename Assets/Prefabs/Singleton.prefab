@@ -92,7 +92,7 @@ MonoBehaviour:
   startRot: {x: 0, y: 0, z: 13}
   endRot: {x: 0, y: 0, z: -4}
   easeingType: 3
-  resetOnEnable: 0
+  resetOnEnable: 1
   timeScaleIndependant: 0
   tweenTime: 1
   delay: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   startPos: {x: -900, y: 44}
   endPos: {x: -702, y: 44}
   easeingType: 3
-  resetOnEnable: 0
+  resetOnEnable: 1
   timeScaleIndependant: 0
   tweenTime: 1
   delay: 0
@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 1290666303042413207}
   - component: {fileID: 384956107159900894}
   - component: {fileID: 2860511468255973104}
+  - component: {fileID: 3334860380815511056}
   m_Layer: 5
   m_Name: ReturnBtn
   m_TagString: Untagged
@@ -324,6 +325,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3334860380815511056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493873472954709477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &542946921089904078
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,8 +913,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195521086907170169}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.003176, y: 2.375, z: 4.2265816}
+  m_LocalRotation: {x: 0.024647292, y: -0.10944074, z: 0.0028647122, w: 0.99368364}
+  m_LocalPosition: {x: 13.9985485, y: 2.4535613, z: 4.2248883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1912,6 +1927,7 @@ GameObject:
   - component: {fileID: 1836883446118742890}
   - component: {fileID: 1820903836852176946}
   - component: {fileID: 7311198874212462889}
+  - component: {fileID: 431430603389531842}
   m_Layer: 5
   m_Name: StartGameBtn
   m_TagString: Untagged
@@ -2033,6 +2049,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &431430603389531842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242094752473631955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &2394749544634174070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3016,7 @@ GameObject:
   - component: {fileID: 32236774317713747}
   - component: {fileID: 7401413098250406862}
   - component: {fileID: 6997047837823389945}
+  - component: {fileID: 8098519813396631247}
   m_Layer: 5
   m_Name: CloseBtn
   m_TagString: Untagged
@@ -3107,6 +3138,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8098519813396631247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655373173261514537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &2713961092487988185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3733,6 +3778,7 @@ GameObject:
   - component: {fileID: 550183574568822836}
   - component: {fileID: 8217395654679426431}
   - component: {fileID: 7418211378405716578}
+  - component: {fileID: 3880276173998591067}
   m_Layer: 5
   m_Name: CreditsText
   m_TagString: Untagged
@@ -3856,6 +3902,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3880276173998591067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451859493203221449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d37ad7496fa4444f82de10627bc08c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 600}
+  endPos: {x: 0, y: 300}
+  easeingType: 30
+  resetOnEnable: 0
+  timeScaleIndependant: 0
+  tweenTime: 1
+  delay: 0
 --- !u!1 &3705442337487605722
 GameObject:
   m_ObjectHideFlags: 0
@@ -4091,7 +4156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3715358430610726721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4276,6 +4341,7 @@ GameObject:
   - component: {fileID: 3983668587131463787}
   - component: {fileID: 5623811745681092009}
   - component: {fileID: 5314198892728446400}
+  - component: {fileID: 6418563826807194985}
   m_Layer: 5
   m_Name: CreditsBtn
   m_TagString: Untagged
@@ -4397,6 +4463,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6418563826807194985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4198862266266287158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &4426122754402627561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5223,6 +5303,8 @@ GameObject:
   - component: {fileID: 5769505715934241886}
   - component: {fileID: 4788209525297538685}
   - component: {fileID: 2411810646347017189}
+  - component: {fileID: 7911126035862010156}
+  - component: {fileID: 112606993828598934}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5247,7 +5329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -281.3}
+  m_AnchoredPosition: {x: 0, y: -280}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5769505715934241886
@@ -5344,6 +5426,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7911126035862010156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5547026028759684124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d37ad7496fa4444f82de10627bc08c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: 0, y: -600}
+  endPos: {x: 0, y: -280}
+  easeingType: 3
+  resetOnEnable: 1
+  timeScaleIndependant: 0
+  tweenTime: 1
+  delay: 0
+--- !u!114 &112606993828598934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5547026028759684124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &5706592649453613715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5828,6 +5943,7 @@ GameObject:
   - component: {fileID: 86468463410642542}
   - component: {fileID: 2715368106025896302}
   - component: {fileID: 5293052538980694085}
+  - component: {fileID: 5042039256514603003}
   m_Layer: 5
   m_Name: FunnyBtn
   m_TagString: Untagged
@@ -5949,6 +6065,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5042039256514603003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931107296488489124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &5972814339585964415
 GameObject:
   m_ObjectHideFlags: 0
@@ -6095,6 +6225,7 @@ GameObject:
   - component: {fileID: 7407724486243921971}
   - component: {fileID: 7723757514338890819}
   - component: {fileID: 8032960782251049214}
+  - component: {fileID: 8128960011466161751}
   m_Layer: 5
   m_Name: OptionsBtn
   m_TagString: Untagged
@@ -6216,6 +6347,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8128960011466161751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086069655377463544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &6355847640969759577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,6 +6641,7 @@ GameObject:
   - component: {fileID: 1730840920615829379}
   - component: {fileID: 5840974449334381218}
   - component: {fileID: 3589508678982373541}
+  - component: {fileID: 7472100772712377668}
   m_Layer: 5
   m_Name: MenuBtn
   m_TagString: Untagged
@@ -6617,6 +6763,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7472100772712377668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6469300943600301206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &6476547255378774687
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,6 +8563,7 @@ GameObject:
   - component: {fileID: 8322228559181491829}
   - component: {fileID: 7719318073753935429}
   - component: {fileID: 8480443795769041913}
+  - component: {fileID: 3626256129530875302}
   m_Layer: 5
   m_Name: OptionsBtn
   m_TagString: Untagged
@@ -8524,6 +8685,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3626256129530875302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8955795638075472254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f751fe165e76114e8c3f1d742f56808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squishPercent: 5
+  onHover: 1
 --- !u!1 &8966794225582180649
 GameObject:
   m_ObjectHideFlags: 0
