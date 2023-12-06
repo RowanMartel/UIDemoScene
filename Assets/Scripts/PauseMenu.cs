@@ -28,28 +28,28 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !locked && gameManager.scene == GameManager.Scenes.gameplay)
         {
-            if (gameManager.paused) Close();
+            if (gameManager.Paused) Close();
             else Open();
         }
     }
 
     public void Open()
     {
-        gameManager.paused = true;
+        gameManager.Paused = true;
         Time.timeScale = 0;
 
         Reappear();
     }
     public void HardOpen()
     {
-        gameManager.paused = true;
+        gameManager.Paused = true;
         Time.timeScale = 0;
 
         HardReappear();
     }
     public void Close()
     {
-        gameManager.paused = false;
+        gameManager.Paused = false;
         options.Close();
         Time.timeScale = 1;
 
@@ -57,7 +57,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void HardClose()
     {
-        gameManager.paused = false;
+        gameManager.Paused = false;
         options.Close();
         Time.timeScale = 1;
 

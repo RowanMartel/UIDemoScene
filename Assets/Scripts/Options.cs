@@ -34,7 +34,7 @@ public class Options : MonoBehaviour
         Dissapear();
 
         // if in gameplay, reopen the pause menu
-        if (gameManager.scene == GameManager.Scenes.gameplay && gameManager.paused)
+        if (gameManager.scene == GameManager.Scenes.gameplay && gameManager.Paused)
         {
             pauseMenu.HardOpen();
         }

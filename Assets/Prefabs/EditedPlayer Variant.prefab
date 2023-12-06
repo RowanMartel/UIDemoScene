@@ -2797,6 +2797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkTime: 0.5
+  debug: 0
 --- !u!1 &6949154207264068107
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,8 +27,6 @@ public class ButtonSquishTween : MonoBehaviour, IPointerEnterHandler
 
     void Squish()
     {
-        Debug.Log("Squishing from " + startScale + " to " + endScale);
-
         endScale = rectTransform.localScale * ((100 - squishPercent) / 100);
         rectTransform.localScale = startScale;
 

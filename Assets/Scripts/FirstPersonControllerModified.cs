@@ -122,7 +122,7 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			if (!gameManager.paused)
+			if (!gameManager.Paused)
 				CameraRotation();
 		}
 

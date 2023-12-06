@@ -5,28 +5,26 @@ using UnityEngine;
 
 public class RECBlink : MonoBehaviour
 {
-    float timer = 0;
     [SerializeField] float blinkTime;
     TMP_Text text;
 
     void Start()
     {
         text = GetComponent<TMP_Text>();
+
+        StartCoroutine(BlinkCoroutine());
     }
 
-    void Update()
+    void Blink()
     {
-        BlinkTimer();
+        if (text.enabled) text.enabled = false;
+        else text.enabled = true;
+        StartCoroutine(BlinkCoroutine());
     }
 
-    void BlinkTimer()
+    IEnumerator BlinkCoroutine()
     {
-        timer += Time.deltaTime;
-        if (timer >= blinkTime)
-        {
-            if (text.enabled) text.enabled = false;
-            else text.enabled = true;
-            timer = 0;
-        }
+        yield return new WaitForSecondsRealtime(blinkTime);
+        Blink();
     }
 }

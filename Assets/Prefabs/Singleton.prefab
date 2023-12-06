@@ -913,8 +913,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195521086907170169}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.024647292, y: -0.10944074, z: 0.0028647122, w: 0.99368364}
-  m_LocalPosition: {x: 13.9985485, y: 2.4535613, z: 4.2248883}
+  m_LocalRotation: {x: 0.04808867, y: -0.24372418, z: 0.011909108, w: 0.96857846}
+  m_LocalPosition: {x: 4.7732763, y: 2.4568284, z: 23.504944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1085,7 +1085,6 @@ GameObject:
   - component: {fileID: 8844097883114105941}
   - component: {fileID: 7595142692118042378}
   - component: {fileID: 4096730020133371701}
-  - component: {fileID: 2344372625654200427}
   m_Layer: 5
   m_Name: Rec
   m_TagString: Untagged
@@ -1209,19 +1208,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2344372625654200427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209784027039380938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4efefbd4747eb6469864c5171ae035f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkTime: 0.5
 --- !u!1 &1346198275958856143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5645,7 +5631,6 @@ MonoBehaviour:
   loseScreen: {fileID: 804628112772125689}
   gameplayCanvas: {fileID: 8438959306283322443}
   filmMeter: {fileID: 9192708778787256405}
-  paused: 0
   scene: 0
 --- !u!1 &5731501935541095412
 GameObject:

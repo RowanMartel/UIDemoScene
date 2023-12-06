@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas gameplayCanvas;
     [SerializeField] FilmMeter filmMeter;
 
-    public bool paused;
+    public event EventHandler pausedEv;
+    public event EventHandler unpausedEv;
+
+    private bool paused;
+    public bool Paused
+    {
+        get { return paused; }
+        set
+        {
+            paused = value;
+            if (paused) pausedEv?.Invoke(this, EventArgs.Empty);
+            else if (!paused) unpausedEv?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     public enum Scenes
     {
@@ -27,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        paused = false;
+        Paused = false;
         Init();
     }
 
